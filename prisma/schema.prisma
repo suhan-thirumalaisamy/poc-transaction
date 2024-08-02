@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = "sqlserver://3.14.171.181:1433;database=consume_doc_transact;username=sa;password=eppEPP2023!;trustServerCertificate=true;"
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String
+}
+
+model Post {
+  id     Int    @id @default(autoincrement())
+  title  String
+  userId Int
+}
